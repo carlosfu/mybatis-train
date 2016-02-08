@@ -25,9 +25,9 @@ public class PlayerMapperXmlTest {
         // 创建能执行映射文件中sql的sqlSession
         SqlSession sqlSession = sessionFactory.openSession(true);
         //statement方式
-//        String statement = "com.sohu.tv.mapper.PlayerDao" + ".getPlayerById";
-//        Player player1 = sqlSession.selectOne(statement, 1);
-//        System.out.println("player1: " + player1);
+        String statement = "com.sohu.tv.mapper.PlayerDao" + ".getPlayerById";
+        Player player1 = sqlSession.selectOne(statement, 1);
+        System.out.println("player1: " + player1);
          
         //Mapper代理方式
         PlayerDao playerDao = sqlSession.getMapper(PlayerDao.class);

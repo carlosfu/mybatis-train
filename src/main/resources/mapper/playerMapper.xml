@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sohu.tv.mapper.PlayerDao">
-	<select id="getPlayerById" parameterType="int" resultMap="com.sohu.tv.bean.Player">
+	<select id="getPlayerById" parameterType="int" resultType="com.sohu.tv.bean.Player">
 		select id,name,age from players where id=#{id}
 	</select>
 </mapper>
