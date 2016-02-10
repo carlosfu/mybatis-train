@@ -16,6 +16,7 @@ import com.sohu.tv.mapper.PlayerDao;
  * @Time 上午9:54:07
  */
 public class PlayerMapperXmlTest {
+    
     @Test
     public void testGetPlayer() throws IOException {
         String resource = "mybatis-base.xml";
@@ -25,13 +26,13 @@ public class PlayerMapperXmlTest {
         // 创建能执行映射文件中sql的sqlSession
         SqlSession sqlSession = sessionFactory.openSession(true);
         //statement方式
-        String statement = "com.sohu.tv.mapper.PlayerDao" + ".getPlayerById";
+        String statement = "com.sohu.tv.mapper.PlayerDao" + ".get";
         Player player1 = sqlSession.selectOne(statement, 1);
         System.out.println("player1: " + player1);
          
         //Mapper代理方式
         PlayerDao playerDao = sqlSession.getMapper(PlayerDao.class);
-        Player player2 = playerDao.getPlayerById(2);
+        Player player2 = playerDao.get(2);
         System.out.println("player2: " + player2);
     }
 }
