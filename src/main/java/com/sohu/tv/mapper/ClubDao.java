@@ -2,6 +2,8 @@ package com.sohu.tv.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.sohu.tv.bean.Club;
 
 /**
@@ -13,5 +15,12 @@ import com.sohu.tv.bean.Club;
 public interface ClubDao {
     
     List<Club> getAll();
+    
+    List<Club> getByName(String name);
+    
+    void updateRank(@Param("id") int id, @Param("rank") int rank);
+    
+    List<Club> getByIds(@Param("ids") List<Integer> ids);
+    
     
 }
