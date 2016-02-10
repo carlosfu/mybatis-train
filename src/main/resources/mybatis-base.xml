@@ -2,6 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+	<settings>
+		<setting name="useColumnLabel" value="true"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
 	<typeAliases>
 		<package name="com.sohu.tv.bean" />
 	</typeAliases>
@@ -21,6 +26,7 @@
 	<mappers>
 		<mapper resource="mapper/playerMapper.xml" />
 		<mapper class="com.sohu.tv.mapper.PlayerAnnotationDao" />
+		<mapper resource="mapper/clubMapper.xml" />
 	</mappers>
 
 </configuration>
