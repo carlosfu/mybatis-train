@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sohu.tv.mapper.PlayerDao">
-	<select id="get" parameterType="int" resultType="com.sohu.tv.bean.Player">
+	<select id="get" parameterType="int" resultType="Player">
 		select id,name,age from players where id=#{id}
 	</select>
 	
-	<insert id="save" parameterType="com.sohu.tv.bean.Player">
+	<insert id="save" parameterType="Player">
 		insert into players(name,age) values(#{name},#{age})
 	</insert>
 	
-	<update id="update" parameterType="com.sohu.tv.bean.Player">
+	<update id="update" parameterType="Player">
 		update players set name=#{name},age=#{age} where id=#{id}
 	</update>
 	
@@ -17,7 +17,7 @@
 		delete from players where id=#{id}
 	</delete>
 	
-	<select id="getAll" resultType="com.sohu.tv.bean.Player">
+	<select id="getAll" resultType="Player">
 		select id,name,age from players
 	</select>
 	
