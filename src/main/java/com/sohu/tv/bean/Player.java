@@ -1,5 +1,7 @@
 package com.sohu.tv.bean;
 
+import java.io.Serializable;
+
 /**
  * 球员
  * 
@@ -7,14 +9,14 @@ package com.sohu.tv.bean;
  * @Date 2016-2-8
  * @Time 下午4:20:49
  */
-public class Player {
+public class Player implements Serializable {
 
     private int id;
 
     private String name;
 
     private int age;
-    
+
     public Player() {
         super();
     }

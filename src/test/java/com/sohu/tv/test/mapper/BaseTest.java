@@ -7,6 +7,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.BeforeClass;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * mybatis测试基类
@@ -15,6 +17,8 @@ import org.junit.BeforeClass;
  * @Time 下午10:47:04
  */
 public class BaseTest {
+    
+    protected Logger logger = LoggerFactory.getLogger(this.getClass());
     
     protected static SqlSessionFactory sessionFactory;
     
