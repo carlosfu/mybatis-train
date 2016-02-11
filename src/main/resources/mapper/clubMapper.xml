@@ -23,7 +23,7 @@
 		select <include refid="clubColumns"></include> from club where name=#{name}
 	</select>
 	
-	<update id="updateRank" parameterType="Club">
+	<update id="updateRank">
 		update club set 
 		<choose>
 			<when test="rank >0">rank=#{rank}</when>
@@ -40,5 +40,14 @@
 			</foreach>
 		</where>
 	</select>
+	
+	<insert id="batchSave" parameterType="list">
+		insert into club(name,info,create_date,rank)
+		values
+		<foreach collection="clubList" item="club" separator=",">
+			(#{club.name},#{club.info},#{club.createDate},#{club.rank})
+		</foreach>
+	</insert>
+	
 
 </mapper>

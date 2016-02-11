@@ -22,5 +22,5 @@ public interface ClubDao {
     
     List<Club> getByIds(@Param("ids") List<Integer> ids);
     
-    
+    int batchSave(@Param("clubList") List<Club> clubList);
 }
