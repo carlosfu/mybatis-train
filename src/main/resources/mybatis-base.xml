@@ -4,6 +4,7 @@
 	<properties resource="db.properties"/>
 
 	<settings>
+		<setting name="useGeneratedKeys" value="true"/>
 		<setting name="useColumnLabel" value="true"/>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>

@@ -21,6 +21,12 @@ public class Player implements Serializable {
         super();
     }
 
+    public Player(String name, int age) {
+        super();
+        this.name = name;
+        this.age = age;
+    }
+
     public Player(int id, String name, int age) {
         super();
         this.id = id;
