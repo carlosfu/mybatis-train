@@ -20,8 +20,9 @@
 		where p.club_id=c.id and p.id=#{id}
 	</select>
  v1 -->
-	
-	<select id="get" parameterType="int" resultMap="playerMap">
+ 
+ <!-- v2
+ <select id="get" parameterType="int" resultMap="playerMap">
 		select id,name,age,club_id from players where id=#{id}
 	</select>
 	
@@ -33,6 +34,34 @@
 	<select id="getClub" parameterType="int" resultType="Club">
 		select id,name,info,create_date,rank from club where id=#{id}
 	</select>
+  -->
+	<select id="get" parameterType="int" resultMap="playerMap">
+		select 
+		p.id,
+		p.name,
+		p.age,
+		p.club_id,
+		c.id as clubId,
+		c.name as clubName,
+		c.info,
+		c.create_date,
+		c.rank
+		from players p, club c
+		where p.club_id=c.id and p.id=#{id}
+	</select>
+	<resultMap type="Player" id="playerMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="age" column="age"/>
+		<result property="clubId" column="club_id"/>
+		<association property="club" javaType="Club">
+			<id property="id" column="clubId"/>
+		    <result property="name" column="clubName"/>
+   		    <result property="info" column="info"/>
+   		    <result property="createDate" column="create_date"/>
+   		    <result property="rank" column="rank"/>
+		</association>
+	</resultMap>
 	
 	
 	<insert id="save" parameterType="Player" keyProperty="id">
