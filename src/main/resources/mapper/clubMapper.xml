@@ -14,6 +14,18 @@
 	<sql id="clubColumns">
 		id,name,info,create_date,rank
 	</sql>
+	
+	<select id="get" parameterType="int" resultMap="clubResultMap">
+		select <include refid="clubColumns"></include> from club where id=#{id}
+	</select>
+	
+	<resultMap type="Club" id="clubResultMap">
+		<collection property="playerList" column="id" ofType="Players" select="getPlayer"/>
+	</resultMap>
+	
+	<select id="getPlayer" resultType="Player">
+		select id,name,age,club_id from players where club_id=#{clubId}
+	</select>
 
 	<select id="getAll" resultType="Club">
 		select <include refid="clubColumns"></include> from club

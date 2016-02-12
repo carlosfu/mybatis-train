@@ -14,6 +14,8 @@ import com.sohu.tv.bean.Club;
  */
 public interface ClubDao {
     
+    Club get(@Param("id") int id);
+    
     List<Club> getAll();
     
     List<Club> getByName(String name);

@@ -37,6 +37,14 @@ public class ClubMapperXmlTest extends BaseTest {
         }
     }
 
+    @Test
+    public void testGet() {
+        Club club = clubDao.get(1);
+        System.out.println("==========test get start=========");
+        System.out.println(club);
+        System.out.println("==========test get end=========");
+    }
+    
 
     @Test
     public void testGetAll() {

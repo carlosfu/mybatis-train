@@ -1,6 +1,7 @@
 package com.sohu.tv.bean;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 俱乐部
@@ -19,6 +20,8 @@ public class Club {
     private Date createDate;
     
     private int rank;
+    
+    private List<Player> playerList;
     
     public int getId() {
         return id;
@@ -61,11 +64,19 @@ public class Club {
         this.rank = rank;
     }
 
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public void setPlayerList(List<Player> playerList) {
+        this.playerList = playerList;
+    }
+
     @Override
     public String toString() {
         return "Club [id=" + id + ", name=" + name + ", info=" + info + ", createDate=" + createDate + ", rank=" + rank
-                + "]";
+                + ", playerList=" + playerList + "]";
     }
-    
+
     
 }
