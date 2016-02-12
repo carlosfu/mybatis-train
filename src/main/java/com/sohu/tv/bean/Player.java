@@ -16,22 +16,28 @@ public class Player implements Serializable {
     private String name;
 
     private int age;
+    
+    private int clubId;
+    
+    private Club club;
 
     public Player() {
         super();
     }
 
-    public Player(String name, int age) {
+    public Player(String name, int age, int clubId) {
         super();
         this.name = name;
         this.age = age;
+        this.clubId = clubId;
     }
 
-    public Player(int id, String name, int age) {
+    public Player(int id, String name, int age, int clubId) {
         super();
         this.id = id;
         this.name = name;
         this.age = age;
+        this.clubId = clubId;
     }
 
     public int getId() {
@@ -58,9 +64,26 @@ public class Player implements Serializable {
         this.age = age;
     }
 
+    public int getClubId() {
+        return clubId;
+    }
+
+    public void setClubId(int clubId) {
+        this.clubId = clubId;
+    }
+
+    public Club getClub() {
+        return club;
+    }
+
+    public void setClub(Club club) {
+        this.club = club;
+    }
+
     @Override
     public String toString() {
-        return "Player [id=" + id + ", name=" + name + ", age=" + age + "]";
+        return "Player [id=" + id + ", name=" + name + ", age=" + age + ", clubId=" + clubId + ", club=" + club + "]";
     }
+
 
 }

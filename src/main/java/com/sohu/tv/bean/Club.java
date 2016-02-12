@@ -19,7 +19,7 @@ public class Club {
     private Date createDate;
     
     private int rank;
-
+    
     public int getId() {
         return id;
     }

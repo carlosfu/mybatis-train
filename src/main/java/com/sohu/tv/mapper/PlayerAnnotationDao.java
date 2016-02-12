@@ -17,18 +17,18 @@ import com.sohu.tv.bean.Player;
  */
 public interface PlayerAnnotationDao {
     
-    @Select("select id,name,age from players where id=#{id}")
+    @Select("select id,name,age,club_id from players where id=#{id}")
     Player get(int id);
 
-    @Insert("insert into players(name,age) values(#{name},#{age})")
+    @Insert("insert into players(name,age,club_id) values(#{name},#{age},#{clubId})")
     int save(Player player);
 
-    @Update("update players set name=#{name},age=#{age} where id=#{id}")
+    @Update("update players set name=#{name},age=#{age},club_id=#{clubId} where id=#{id}")
     int update(Player player);
 
     @Delete("delete from players where id=#{id}")
     int delete(int id);
 
-    @Select("select id,name,age from players")
+    @Select("select id,name,age,club_id from players")
     List<Player> getAll();
 }

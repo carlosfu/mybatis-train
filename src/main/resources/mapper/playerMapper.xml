@@ -4,16 +4,43 @@
 	
 	<cache type="com.sohu.tv.redis.MybatisRedisCache"/> 
 
-	<select id="get" parameterType="int" resultType="Player">
-		select id,name,age from players where id=#{id}
+<!-- 1对1
+<select id="get" parameterType="int" resultType="Player">
+		select 
+		p.id,
+		p.name,
+		p.age,
+		p.club_id,
+		c.id "club.id",
+		c.name "club.name",
+		c.info "club.info",
+		c.create_date "club.createDate",
+		c.rank "club.rank"
+		from players p, club c
+		where p.club_id=c.id and p.id=#{id}
+	</select>
+ v1 -->
+	
+	<select id="get" parameterType="int" resultMap="playerMap">
+		select id,name,age,club_id from players where id=#{id}
 	</select>
 	
+	<resultMap type="Player" id="playerMap">
+		<association property="club" column="club_id" javaType="Club" select="getClub">
+		</association>
+	</resultMap>
+	
+	<select id="getClub" parameterType="int" resultType="Club">
+		select id,name,info,create_date,rank from club where id=#{id}
+	</select>
+	
+	
 	<insert id="save" parameterType="Player" keyProperty="id">
-		insert into players(name,age) values(#{name},#{age})
+		insert into players(name,age,club_id) values(#{name},#{age},#{clubId})
 	</insert>
 	
 	<update id="update" parameterType="Player">
-		update players set name=#{name},age=#{age} where id=#{id}
+		update players set name=#{name},age=#{age},club_id=#{clubId} where id=#{id}
 	</update>
 	
 	<delete id="delete" parameterType="int">
@@ -21,7 +48,7 @@
 	</delete>
 	
 	<select id="getAll" resultType="Player">
-		select id,name,age from players
+		select id,name,age,club_id from players
 	</select>
 	
 </mapper>

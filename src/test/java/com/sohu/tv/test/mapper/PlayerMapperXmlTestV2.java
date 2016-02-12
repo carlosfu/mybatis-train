@@ -44,13 +44,13 @@ public class PlayerMapperXmlTestV2 extends BaseTest {
 
     @Test
     public void testSave() {
-        playerDao.save(new Player(-1, "messi", 29));
+        playerDao.save(new Player("messi", 29, 1));
         testGetAll();
     }
 
     @Test
     public void testUpdate() {
-        playerDao.update(new Player(1, "c-r", 30));
+        playerDao.update(new Player(1, "c-r", 30, 3));
         testGetAll();
     }
 

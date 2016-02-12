@@ -66,7 +66,7 @@ public class FirstLevelCacheTest extends BaseTest {
 //        sqlSession1.commit();
 //        sqlSession1.clearCache();
         
-        playerDao.save(new Player(-1, "xxxxx", 20));
+        playerDao.save(new Player("xxxxx", 20, 2));
         sqlSession1.commit();
         
         player = playerDao.get(id);

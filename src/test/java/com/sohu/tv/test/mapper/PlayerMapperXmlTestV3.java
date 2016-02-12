@@ -38,13 +38,13 @@ public class PlayerMapperXmlTestV3 extends BaseTest {
 
     @Test
     public void testGet() {
-        Player player = playerDao.get(2);
+        Player player = playerDao.get(1);
         System.out.println("player: " + player);
     }
 
     @Test
     public void testSave() {
-        Player player = new Player("messi", 29);
+        Player player = new Player("messi", 29, 1);
         int saveResult = playerDao.save(player);
         System.out.println("saveResult: " + saveResult);
         System.out.println(player);
@@ -52,7 +52,7 @@ public class PlayerMapperXmlTestV3 extends BaseTest {
 
     @Test
     public void testUpdate() {
-        int updateResult = playerDao.update(new Player(19, "c-r", 30));
+        int updateResult = playerDao.update(new Player(19, "c-r", 30, 1));
         System.out.println("updateResult: " + updateResult);
     }
 

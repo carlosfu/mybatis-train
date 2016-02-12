@@ -43,13 +43,13 @@ public class PlayerMapperAnnotationTest extends BaseTest {
 
     @Test
     public void testSave() {
-        playerAnnotationDao.save(new Player(-1, "messi", 29));
+        playerAnnotationDao.save(new Player("messi", 29, 2));
         testGetAll();
     }
 
     @Test
     public void testUpdate() {
-        playerAnnotationDao.update(new Player(1, "c-r", 30));
+        playerAnnotationDao.update(new Player(1, "c-r", 30, 3));
         testGetAll();
     }
 

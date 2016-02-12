@@ -21,3 +21,5 @@ INSERT INTO club(name, info, create_date, rank) VALUES('AC', 'AC米兰', '1899-1
 INSERT INTO club(name, info, create_date, rank) VALUES('Real Madrid', '皇家马德里', '1902-03-06', 1);  
 INSERT INTO club(name, info, create_date, rank) VALUES('Inter', '国际米兰', '1908-03-09', 7);  
 
+--修改player表，添加俱乐部id
+alter table players add column club_id int comment '俱乐部id';
