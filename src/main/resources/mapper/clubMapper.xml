@@ -15,6 +15,7 @@
 		id,name,info,create_date,rank
 	</sql>
 	
+	<!--  1对多 v1
 	<select id="get" parameterType="int" resultMap="clubResultMap">
 		select <include refid="clubColumns"></include> from club where id=#{id}
 	</select>
@@ -26,6 +27,36 @@
 	<select id="getPlayer" resultType="Player">
 		select id,name,age,club_id from players where club_id=#{clubId}
 	</select>
+	-->
+	
+	<select id="get" parameterType="int" resultMap="clubResultMap">
+		select 
+		c.id,
+		c.name,
+		c.info,
+		c.create_date,
+		c.rank,
+		p.id pid,
+		p.name pname,
+		p.age,
+		p.club_id
+	 	from club c, players p where c.id=#{id} and c.id=p.club_id
+	</select>
+	
+	<resultMap type="Club" id="clubResultMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="info" column="info"/>
+		<result property="createDate" column="create_date"/>
+		<result property="rank" column="rank"/>
+		<collection property="playerList" ofType="Player">
+			<id property="id" column="pid"/>
+			<result property="name" column="pname"/>
+			<result property="age" column="age"/>
+			<result property="clubId" column="club_id"/>
+		</collection>
+	</resultMap>
+	
 
 	<select id="getAll" resultType="Club">
 		select <include refid="clubColumns"></include> from club
