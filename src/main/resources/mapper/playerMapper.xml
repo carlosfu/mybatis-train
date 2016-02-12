@@ -2,7 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sohu.tv.mapper.PlayerDao">
 	
-	<cache type="com.sohu.tv.redis.MybatisRedisCache"/> 
+	<!-- 
+		<cache type="com.sohu.tv.redis.MybatisRedisCache"/> 
+	 -->
 
 <!-- 1对1
 <select id="get" parameterType="int" resultType="Player">
